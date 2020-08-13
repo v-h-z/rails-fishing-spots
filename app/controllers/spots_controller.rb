@@ -4,7 +4,8 @@ class SpotsController < ApplicationController
     @markers = @spots.map do |spot|
       {
         lat: spot.latitude,
-        lng: spot.longitude
+        lng: spot.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
       }
     end
   end
