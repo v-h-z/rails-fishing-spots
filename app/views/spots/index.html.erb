@@ -1,2 +1,8 @@
 <h1>Spots#index</h1>
 <p>Find me in app/views/spots/index.html.erb</p>
+
+<ul>
+<% @spots.each do |spot| %>
+  <li> <%= link_to spot.name, spot_path(spot) %> </li>
+<% end %>
+</ul>
