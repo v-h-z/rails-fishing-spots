@@ -2,10 +2,16 @@ class SpotsController < ApplicationController
   def index
     @spots = Spot.geocoded
     @markers = @spots.map do |spot|
+      url = {
+        "lake": "lake.jpg",
+        "river cat 1": "river_cat_1.png",
+        "river cat 2": "river_cat_2.svg"
+      }
       {
         lat: spot.latitude,
         lng: spot.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
+        infoWindow: render_to_string(partial: "info_window", locals: { spot: spot }),
+        image_url: helpers.asset_url(url[spot.category.to_sym])
       }
     end
   end
