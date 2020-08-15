@@ -1,6 +1,6 @@
 <%= simple_form_for @spot do |f| %>
   <%= f.input(:name) %>
-  <%= f.input :category, collection: Spot::categories %>
+  <%= f.input :category, collection: Spot.categories %>
   <%= f.input(:address) %>
   <%= f.submit class:"btn btn-primary" %>
 <% end %>
