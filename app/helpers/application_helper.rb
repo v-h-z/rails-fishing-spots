@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def talk_to(someone)
-    "#{dis_coucou.capitalize} #{someone.capitalize}!"
+    "#{dis_coucou.capitalize} #{someone.first_name.capitalize} #{someone.last_name.capitalize}!"
   end
 
   def now

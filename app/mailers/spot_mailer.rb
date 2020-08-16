@@ -7,6 +7,7 @@ class SpotMailer < ApplicationMailer
   #
   def create_confirmation
     @spot = params[:spot]
+    @greeting = "Dear #{@spot.user.first_name.capitalize}"
 
     mail(
       to:       @spot.user.email,

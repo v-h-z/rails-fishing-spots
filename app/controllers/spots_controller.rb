@@ -1,11 +1,16 @@
 class SpotsController < ApplicationController
   def index
-    @spots = Spot.geocoded
+    if params[:cat].present?
+      @spots = params[:cat] == "all" ? Spot.geocoded : Spot.geocoded.where(category: params[:cat].gsub("-", " "))
+    else
+      @spots = Spot.geocoded
+    end
     @markers = @spots.map do |spot|
       url = {
         "lake": "lake.jpg",
         "river cat 1": "river_cat_1.png",
-        "river cat 2": "river_cat_2.svg"
+        "river cat 2": "river_cat_2.svg",
+        "sea": "sea.png"
       }
       {
         lat: spot.latitude,
@@ -26,6 +31,7 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
+    @spot.user = current_user
     if @spot.save
       mail = SpotMailer.with(spot: @spot).create_confirmation
       mail.deliver_now

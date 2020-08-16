@@ -1,11 +1,19 @@
-<h1>Spots#index</h1>
+<!-- <h1>Spots#index</h1>
 <p>Find me in app/views/spots/index.html.erb</p>
 
 <ul>
 <% @spots.each do |spot| %>
   <li> <%= link_to spot.name, spot_path(spot) %> </li>
 <% end %>
+</ul> -->
+<h1>Les Spots !</h1>
+<h4>Quels types de spots vous interessent:</h4>
+<ul class="spot-types">
+  <% ["all", "sea", "river-cat-1", "river-cat-2", "lake"].each do |cat| %>
+    <li><%= link_to cat, spots_path + "?cat=#{cat}" %></li>
+  <% end %>
 </ul>
+
 
 <div id="map"
   style="width: 100%; height: 600px;"
