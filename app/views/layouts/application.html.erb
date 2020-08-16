@@ -12,10 +12,13 @@
   </head>
 
   <body>
-    <div class="header">
+    <!-- <div class="header">
       <a href="/spots">Retour a la liste de spots</a>
       <a href="/spots/new">Créer un spot</a>
-    </div>
+    </div> -->
+    <%= render "components/navbar" %>
     <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   </body>
 </html>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: 'pages#home'
   get "/spots", to: "spots#index"
   get "spots/new", to: "spots#new"

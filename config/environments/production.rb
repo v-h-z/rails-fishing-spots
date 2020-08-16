@@ -14,7 +14,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
+  # Ensures that a master key
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
 
@@ -61,6 +61,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "rails_fishing_spots_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'fishing-spots.herokuapp.com', port: 80 }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

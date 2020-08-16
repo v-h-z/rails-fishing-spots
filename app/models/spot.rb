@@ -1,4 +1,5 @@
 class Spot < ApplicationRecord
+  belongs_to :user
   # attr_reader :categories
   # categories = ["lake", "river cat 1", "river cat 2", "sea", "pond"]
   @@categories = ["lake", "river cat 1", "river cat 2", "sea", "pond"]
