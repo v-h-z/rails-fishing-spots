@@ -33,8 +33,8 @@ class SpotsController < ApplicationController
     @spot = Spot.new(spot_params)
     @spot.user = current_user
     if @spot.save
-      mail = SpotMailer.with(spot: @spot).create_confirmation
-      mail.deliver_now
+      # mail = SpotMailer.with(spot: @spot).create_confirmation
+      # mail.deliver_now
       redirect_to spots_path
     else
       render :new
